@@ -60,6 +60,7 @@ header .menu .busca input[type='submit'] {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .busca .resultado-busca .resultado-busca-item {
@@ -68,7 +69,7 @@ header .menu .busca input[type='submit'] {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
-    margin: 0 10px;
+    margin: 5px 10px;
 }
 
 .busca .resultado-busca .resultado-busca-item a {

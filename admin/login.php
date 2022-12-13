@@ -12,16 +12,17 @@ $user = new Usuarios();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/admin.css">
     <title>Login - Painel</title>
 </head>
 <body>
 
     <div class="area-login-painel">
-        <h2>Login</h2>
-        <div class="form-painel">
+        <div class="form-login-painel">
+            <h2>Login</h2>
             <form method="post">
-                <input type="email" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="senha">
+                <input type="email" name="email" placeholder="email" autofocus="on" required>
+                <input type="password" name="password" placeholder="senha" required>
                 <input type="submit" name="acessar" value="acessar">
             </form>
         </div>
