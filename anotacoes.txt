@@ -1,7 +1,7 @@
 # zenflix #
 
 // o que vai ter:
-- listagem de filmes/séries;
+- listagem de filmes;
 - painel admin, para o adm inserir e deletar novos itens
 - busca;
 - listagem dos mais avaliados;
