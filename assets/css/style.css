@@ -56,7 +56,7 @@ header .menu .busca input[type='submit'] {
 
 .main .listagem {
     margin-top: 10px;
-    max-width: 800px;
+    max-width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,12 +64,16 @@ header .menu .busca input[type='submit'] {
 }
 
 .main .listagem .item-listagem {
-    width: calc(900px / 3);
+    width: calc(1200px / 5);
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     margin: 5px 10px;
+}
+
+.main .listagem .item-listagem img {
+    width: 220px;
 }
 
 .main .listagem .item-listagem a {

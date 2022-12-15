@@ -24,7 +24,13 @@ $user = new Usuarios();
                 <input type="email" name="email" placeholder="email" autofocus="on" required>
                 <input type="password" name="password" placeholder="senha" required>
                 <input type="submit" name="acessar" value="acessar">
+                <a href="../index.php">Home</a>
             </form>
+
+        </div>
+
+        <div class="right-side">
+
         </div>
     </div>
 

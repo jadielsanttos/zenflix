@@ -1,13 +1,30 @@
 <?php
-//session_start();
 require_once 'classes/Usuarios.php';
 require_once 'classes/Filmes.php';
 $filmes = new Filmes(); 
 
+// verificando sessao
 if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
 
 }else {
     header('location: login.php');
+    exit;
+}
+
+// puxando dados do filme
+$data = [];
+$id_filme = filter_input(INPUT_GET, 'id');
+
+if($id_filme) {
+    $sql = $pdo->prepare("SELECT * FROM filmes WHERE id = :id_filme");
+    $sql->bindValue(':id_filme', $id_filme);
+    $sql->execute();
+
+    if($sql->rowCount() > 0) {
+        $data = $sql->fetch(PDO::FETCH_ASSOC);
+    }
+}else {
+    header('location: editar.php');
     exit;
 }
 
@@ -27,61 +44,56 @@ if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
 
     <section class="main">
         <div class="side-bar">
-            <a href=""><h2>Zenflix</h2></a>
+        <a href="index.php"><h2>Zenflix</h2></a>
             <a href="../index.php">acessar site</a>
             <a href="logout.php">sair</a>
         </div>
 
+
         <div class="content">
-            <div class="title-form"><h2>Cadastrar novo filme <i id="angle-up1" class="fa-solid fa-angle-up"></i><i id="angle-down1" class="fa-solid fa-angle-down"></i></h2></div>
+            <div class="title-edit"><h2>Editar filmes <i id="angle-up" class="fa-solid fa-angle-up"></i><i id="angle-down" class="fa-solid fa-angle-down"></i></h2></div>
             <div class="form">
-                <form action="" method="post">
+                <form method="post">
+                    <input type="hidden" name="id" value="<?=$data['id'];?>">
                     <label for="Nome do filme">Nome</label>
-                    <input type="text" name="titulo" placeholder="Nome do filme" required>
+                    <input type="text" name="titulo" placeholder="Nome do filme" value="<?=$data['titulo'];?>">
+                    
                     <label for="Descrição">Descrição</label>
-                    <textarea name="descricao" id="" cols="30" rows="10" placeholder="Descrição do filme..." required></textarea>                   
-                    <input type="submit" name="cadastrar" value="cadastrar">
+                    <textarea name="descricao" id="" cols="30" rows="10" placeholder="Descrição do filme..."><?=$data['descricao'];?></textarea>
+                    
+                    <label for="Media">Media</label>
+                    <input type="text" name="media" value="<?=$data['media'];?>">
+                    <input type="submit" name="salvar" value="salvar">
                 </form>
             </div>
 
-            <div class="title-filmes"><h2>Filmes cadastrados <i id="angle-up" class="fa-solid fa-angle-up"></i><i id="angle-down" class="fa-solid fa-angle-down"></i></h2></div>
-            <div class="area-filmes">
-                <table id="table-special" class="table table-striped">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Avaliação</th>
-                        <th>Ação</th>
-                    </tr>
-                  
-                    <?php $filmes->listarFilmes(); ?>
-                </table>
-            </div>
         </div>
     </section>
 
 
     <?php 
 
-        if(isset($_POST['cadastrar'])) {
+        if(isset($_POST['salvar'])) {
             $titulo = addslashes($_POST['titulo']);
             $descricao = addslashes($_POST['descricao']);
+            $media = addslashes($_POST['media']);
 
-            $filmes->cadastrarFilmes($titulo,$descricao);
+            $filmes->editarFilmes($titulo,$descricao,$media);
+            
         }
+        
 
     ?>
 
-
     <script>
 
-        document.querySelector('.title-form').addEventListener('click', showForm);
-        document.querySelector('.title-filmes').addEventListener('click', showTable);
+        document.querySelector('.title-edit').addEventListener('click', showForm);
 
         function showForm() {
-            let angle_up = document.getElementById('angle-up1');
-            let angle_down = document.getElementById('angle-down1');
+            let angle_up = document.getElementById('angle-up');
+            let angle_down = document.getElementById('angle-down');
             let form = document.querySelector('.form');
+
             if(form.style.display == 'block') {
                 angle_up.style.display = 'none';
                 angle_down.style.display = 'block';
@@ -93,26 +105,9 @@ if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
             }
         }
 
-        function showTable() {
-            let angle_up = document.getElementById('angle-up');
-            let angle_down = document.getElementById('angle-down');
-            let table = document.querySelector('.area-filmes');
-
-            if(table.style.display == 'block') {
-                angle_up.style.display = 'none';
-                angle_down.style.display = 'block';
-                table.style.display = 'none';
-            }else {
-                angle_up.style.display = 'block';
-                angle_down.style.display = 'none';
-                table.style.display = 'block';
-            }
-        }
-
-
-
-
     </script>
+
+
 
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
