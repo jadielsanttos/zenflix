@@ -5,5 +5,7 @@
 - painel admin, para o adm inserir, editar e deletar novos itens(ok)
 - busca(ok)
 - exibir lista de filmes no painel(ok)
-- listagem dos mais avaliados
+- listagem dos mais avaliados(ok)
+- ao ser clicado, exibir o filme em outra página
+- melhorar sistema de votação/avaliação
 

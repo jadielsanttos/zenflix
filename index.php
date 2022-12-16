@@ -14,8 +14,14 @@
 
     <?php require 'partials/header.php'; ?>
 
+    <div class="section-banner">
+        <div class="section-item">
+            <img src="assets/images/batman.jpg" alt="">
+        </div>
+    </div>
+
     <div class="main">
-        <h1>Lista de filmes</h1>
+        <h2>Adicionados recentemente</h2>
 
         <div class="listagem">
 
@@ -47,6 +53,40 @@
             
         </div>
     </div>
+
+    <div class="section-single">
+        <div class="title-section-single"><h2>Melhores avaliações</h2></div>
+        <div class="listagem">
+
+        <?php 
+        
+        $sql = $pdo->prepare("SELECT * FROM filmes WHERE media > 3");
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            foreach($sql->fetchAll() as $item) { ?>
+
+                <div class="item-listagem">
+                    <img src="assets/images/img-default.jpg" alt="">
+                    <h3><?=$item['titulo'];?></h3>
+                    <p><?=$item['descricao'];?></p>
+                    <a href="voto.php?id=<?=$item['id'];?>&voto=1"><i class="fa-solid fa-star"></i></a>
+                    <a href="voto.php?id=<?=$item['id'];?>&voto=2"><i class="fa-solid fa-star"></i></a>
+                    <a href="voto.php?id=<?=$item['id'];?>&voto=3"><i class="fa-solid fa-star"></i></a>
+                    <a href="voto.php?id=<?=$item['id'];?>&voto=4"><i class="fa-solid fa-star"></i></a>
+                    <a href="voto.php?id=<?=$item['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
+                    <span>(<?=number_format($item['media'], 2);?>)</span>
+                </div>
+
+        <?php    
+            }
+        }
+        
+        ?>
+        </div>
+    </div>
+
+    <?php require 'partials/footer.php'; ?>
     
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>

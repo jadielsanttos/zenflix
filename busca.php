@@ -51,6 +51,8 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
         </div>
     </div>
 
+    <?php require 'partials/footer.php'; ?>
+
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>
