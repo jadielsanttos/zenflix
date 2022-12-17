@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Roboto&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 html, body {
@@ -13,12 +14,16 @@ html, body {
     color: #fff;
 }
 
-header .menu {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: space-around;
+header {
     background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+}
+
+header .menu {
+    height: 80px;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
     /* background-image: linear-gradient(to right, rgb(32, 0, 21), rgb(11, 0, 41)); */
 }
 
@@ -42,11 +47,16 @@ header .menu .busca input[type='search'] {
     font-size: 17px;
 }
 
-header .menu .busca input[type='submit'] {
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 17px;
+header .menu .busca input[type='search']:focus {
+    width: 260px;
+}
+
+header .menu .busca button {
+    padding: 5px 10px;
     cursor: pointer;
+    font-size: 17px;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 /* section banner */
@@ -85,6 +95,11 @@ header .menu .busca input[type='submit'] {
     flex-wrap: wrap;
 }
 
+.main .listagem .link-item-listagem {
+    text-decoration: none;
+    color: #fff;
+}
+
 .main .listagem .item-listagem {
     width: calc(1200px / 5);
     margin-top: 5px;
@@ -98,12 +113,12 @@ header .menu .busca input[type='submit'] {
     width: 220px;
 }
 
-.main .listagem .item-listagem a {
+.main .listagem .item-listagem .fa-star {
     color: rgb(201, 201, 0);
     text-decoration: none;
 }
 
-.main .listagem .item-listagem a:hover {
+.main .listagem .item-listagem fa-star:hover {
     color: yellow;
 }
 
@@ -152,7 +167,72 @@ header .menu .busca input[type='submit'] {
     color: yellow;
 }
 
-/* footer area */
+/* sessao view filme */
+
+.section-view-filme {
+    background-image: url('../images/Robô.jpg');
+    background-size: cover;
+    background-position: right;
+    width: 100%;
+    height: 100vh;
+}
+
+.section-view-filme .single {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
+}
+
+.section-view-filme .area-section-view-filme {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-top: 20%;
+}
+
+.section-view-filme .area-section-view-filme h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.section-view-filme .area-section-view-filme p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.section-view-filme .area-section-view-filme span {
+    color: #ccc;
+}
+
+.section-view-filme .area-section-view-filme a {
+    color: rgb(201, 201, 0);
+    text-decoration: none;
+}
+
+.section-view-filme .area-section-view-filme a:hover {
+    color: yellow;
+}
+
+.section-view-filme .area-section-view-filme button {
+    width: 100px;
+    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+    padding: 8px 20px;
+    margin-top: 10px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.section-view-filme .area-section-view-filme button:hover {
+    background-image: linear-gradient(to right, rgb(2, 0, 8), rgb(17, 0, 11));
+}
+
+/* footer geral area */
 
 footer .footer-area {
     display: flex;
@@ -161,9 +241,4 @@ footer .footer-area {
     width: 100%;
     height: 80px;
     background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
-    margin-top: 20px;
-}
-
-footer .footer-area span {
-    
 }

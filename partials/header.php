@@ -7,7 +7,8 @@
         <div class="busca">
             <form method="get" action="busca.php">
                 <input type="search" name="q" placeholder="buscar filmes...">
-                <input type="submit" value="buscar">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <!-- <input type="submit" value="buscar"> -->
             </form>
         </div>
     </div>

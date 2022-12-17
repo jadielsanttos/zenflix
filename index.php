@@ -32,8 +32,9 @@
 
         if($sql->rowCount() > 0) { 
             foreach($sql->fetchAll() as $filme) {  ?>
+                <a class="link-item-listagem" href="filme.php?f=<?=$filme['titulo'];?>">
                 <div class="item-listagem">
-                    <img src="assets/images/img-default.jpg" alt="">
+                    <img src="<?=$filme['dir_foto'];?>" alt="">
                     <h3><?=$filme['titulo'];?></h3>
                     <p><?=$filme['descricao'];?></p>
                     <a href="voto.php?id=<?=$filme['id'];?>&voto=1"><i class="fa-solid fa-star"></i></a>
@@ -43,6 +44,7 @@
                     <a href="voto.php?id=<?=$filme['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
                     <span>(<?=number_format($filme['media'], 2);?>)</span>
                 </div>
+                </a>
         <?php
             }
         }else {

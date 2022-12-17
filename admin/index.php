@@ -35,11 +35,13 @@ if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
         <div class="content">
             <div class="title-form"><h2>Cadastrar novo filme <i id="angle-up1" class="fa-solid fa-angle-up"></i><i id="angle-down1" class="fa-solid fa-angle-down"></i></h2></div>
             <div class="form">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <label for="Nome do filme">Nome</label>
                     <input type="text" name="titulo" placeholder="Nome do filme" required>
                     <label for="Descrição">Descrição</label>
-                    <textarea name="descricao" id="" cols="30" rows="10" placeholder="Descrição do filme..." required></textarea>                   
+                    <textarea name="descricao" id="" cols="30" rows="10" placeholder="Descrição do filme..." required></textarea>  
+                    <label for="foto">Capa do filme</label>
+                    <input type="file" name="foto">              
                     <input type="submit" name="cadastrar" value="cadastrar">
                 </form>
             </div>
@@ -62,12 +64,21 @@ if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
 
 
     <?php 
-
+        
         if(isset($_POST['cadastrar'])) {
             $titulo = addslashes($_POST['titulo']);
             $descricao = addslashes($_POST['descricao']);
+            
+            $nome_arquivo = $_FILES['foto']['name'];
+            $caminho_atual = $_FILES['foto']['tmp_name'];
+            $nome_novo = md5(time().rand(0,999)).'.jpg';
+            $caminho_salvar = 'images/capa_filme/'.$nome_novo;
+            $diretorio_final = 'admin/images/capa_filme/'.$nome_novo;
 
-            $filmes->cadastrarFilmes($titulo,$descricao);
+            if(move_uploaded_file($caminho_atual, $caminho_salvar)) {
+                $filmes->cadastrarFilmes($titulo,$descricao,$diretorio_final);
+            }
+
         }
 
     ?>

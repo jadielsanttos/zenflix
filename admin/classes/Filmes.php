@@ -4,10 +4,10 @@ require '../config.php';
 class Filmes {
     public $pdo;
 
-    public function cadastrarFilmes($titulo,$descricao) {
+    public function cadastrarFilmes($titulo,$descricao,$foto) {
         global $pdo;
-
         $media = 0;
+
 
         $sql = $pdo->prepare("SELECT * FROM filmes WHERE titulo = :titulo");
         $sql->bindValue(':titulo', $titulo);
@@ -17,8 +17,8 @@ class Filmes {
             echo "<script>alert('esse filme ja está cadastrado')</script>";
         }
 
-        $sql = $pdo->prepare("INSERT INTO filmes VALUES (null,?,?,?)");
-        $sql->execute(array($titulo,$descricao,$media));
+        $sql = $pdo->prepare("INSERT INTO filmes VALUES (null,?,?,?,?)");
+        $sql->execute(array($titulo,$descricao,$media,$foto));
 
         echo "<script>alert('cadastrado com sucesso!')</script>";
     
@@ -63,6 +63,7 @@ class Filmes {
             $sql->bindValue(':titulo', $titulo);
             $sql->bindValue(':descricao', $descricao);
             $sql->bindValue(':media', $media);
+            //$sql->bindValue(':foto', $foto);
             $sql->bindValue(':id', $id);
             $sql->execute();
 
@@ -73,4 +74,36 @@ class Filmes {
         }
         
     }
+
+    public function excluirFilme($id) {
+        global $pdo;
+
+        if($id) {
+
+            $this->excluirArquivoImagem($id);
+            $sql = $pdo->prepare("DELETE FROM filmes WHERE id = :id");
+            $sql->bindValue(':id', $id);
+            $sql->execute();
+
+            header('location: index.php');
+        }else {
+            echo '<script>alert("Ação recusada!")</script>';
+            echo '<script>window.location.href = "index.php"</script>';
+        }
+
+    }
+
+    public function excluirArquivoImagem($id) {
+        global $pdo;
+
+        $sql = $pdo->prepare("SELECT * FROM filmes WHERE id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+
+        $info = $sql->fetch();
+        $valor = $info['dir_foto'];
+
+        unlink('../'.$valor);
+    }
+
 }

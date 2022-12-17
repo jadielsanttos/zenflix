@@ -6,6 +6,8 @@
 - busca(ok)
 - exibir lista de filmes no painel(ok)
 - listagem dos mais avaliados(ok)
-- ao ser clicado, exibir o filme em outra página
+- ao ser clicado, exibir o filme em outra página(ok)
+- upload de fotos(ok)
+    - crud das fotos
 - melhorar sistema de votação/avaliação
 

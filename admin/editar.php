@@ -53,7 +53,10 @@ if($id_filme) {
         <div class="content">
             <div class="title-edit"><h2>Editar filmes <i id="angle-up" class="fa-solid fa-angle-up"></i><i id="angle-down" class="fa-solid fa-angle-down"></i></h2></div>
             <div class="form">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
+                    <h4>Capa do filme</h4>
+                    <img src="../<?=$data['dir_foto'];?>" class="show-capa"><br>
+
                     <input type="hidden" name="id" value="<?=$data['id'];?>">
                     <label for="Nome do filme">Nome</label>
                     <input type="text" name="titulo" placeholder="Nome do filme" value="<?=$data['titulo'];?>">
@@ -63,8 +66,12 @@ if($id_filme) {
                     
                     <label for="Media">Media</label>
                     <input type="text" name="media" value="<?=$data['media'];?>">
+
+                    <label for="AlterarCapa">Alterar capa</label>
+                    <input type="file" name="AlterarCapa">
                     <input type="submit" name="salvar" value="salvar">
                 </form>
+
             </div>
 
         </div>
@@ -79,7 +86,6 @@ if($id_filme) {
             $media = addslashes($_POST['media']);
 
             $filmes->editarFilmes($titulo,$descricao,$media);
-            
         }
         
 

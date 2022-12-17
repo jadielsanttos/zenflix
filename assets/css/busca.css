@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Roboto&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 html, body {
@@ -13,13 +14,16 @@ html, body {
     color: #fff;
 }
 
+header {
+    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+}
+
 header .menu {
-    width: 100%;
+    max-width: 1200px;
     height: 80px;
     display: flex;
-    justify-content: space-around;
-    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
-    color: #fff;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
 header .menu .logo, header .menu .busca {
@@ -42,15 +46,19 @@ header .menu .busca input[type='search'] {
     font-size: 17px;
 }
 
-header .menu .busca input[type='submit'] {
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 17px;
+header .menu .busca input[type='search']:focus {
+    width: 260px;
+}
+
+header .menu .busca button {
+    padding: 5px 10px;
     cursor: pointer;
+    font-size: 17px;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 /* area busca */
-
 .busca {
     display: flex;
     justify-content: center;
