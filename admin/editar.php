@@ -85,7 +85,18 @@ if($id_filme) {
             $descricao = addslashes($_POST['descricao']);
             $media = addslashes($_POST['media']);
 
-            $filmes->editarFilmes($titulo,$descricao,$media);
+            if(isset($_FILES['AlterarCapa']) && !empty($_FILES['AlterarCapa']['tmp_name'])) {
+                $nome_arquivo = $_FILES['AlterarCapa']['name'];
+                $caminho_atual = $_FILES['AlterarCapa']['tmp_name'];
+                $nome_novo = md5(time().rand(0,9999)).'.jpg';
+                $caminho_salvar = 'images/capa_filme/'.$nome_novo;
+                $diretorio_final = 'admin/images/capa_filme/'.$nome_novo;
+
+                if(move_uploaded_file($caminho_atual, $caminho_salvar)) {
+                    $filmes->editarFilmes($titulo,$descricao,$media,$diretorio_final);
+                }
+            }
+
         }
         
 

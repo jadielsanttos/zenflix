@@ -100,17 +100,22 @@ header .menu .busca button {
     color: #fff;
 }
 
+.main .listagem .item-listagem .area-info {
+    padding: 5px;
+}
+
 .main .listagem .item-listagem {
-    width: calc(1200px / 5);
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    /* width: calc(1200px / 6); */
+    /* margin-top: 10px; */
+    border: 1px solid #444;
+    border-radius: 10px;
     margin: 5px 10px;
 }
 
 .main .listagem .item-listagem img {
     width: 220px;
+    height: 146px;
+    border-radius: 10px 10px 0 0;
 }
 
 .main .listagem .item-listagem .fa-star {
@@ -118,7 +123,7 @@ header .menu .busca button {
     text-decoration: none;
 }
 
-.main .listagem .item-listagem fa-star:hover {
+.main .listagem .item-listagem .fa-star:hover {
     color: yellow;
 }
 
@@ -146,24 +151,34 @@ header .menu .busca button {
 }
 
 .section-single .listagem .item-listagem {
-    width: calc(1200px / 5);
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    /* width: calc(1200px / 5); */  
+    /* margin-top: 5px; */
+    border: 1px solid #444;
+    border-radius: 10px;
     margin: 5px 10px;
+}
+
+.section-single .listagem .link-item-listagem {
+    text-decoration: none;
+    color: #fff;
 }
 
 .section-single .listagem .item-listagem img {
     width: 220px;
+    height: 146px;
+    border-radius: 10px 10px 0 0;
 }
 
-.section-single .listagem .item-listagem a {
+.section-single .listagem .item-listagem .area-info {
+    padding: 5px;
+}
+
+.section-single .listagem .item-listagem .fa-star {
     color: rgb(201, 201, 0);
     text-decoration: none;
 }
 
-.section-single .listagem .item-listagem a:hover {
+.section-single .listagem .item-listagem .fa-star:hover {
     color: yellow;
 }
 

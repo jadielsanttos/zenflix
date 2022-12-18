@@ -8,6 +8,7 @@
 - listagem dos mais avaliados(ok)
 - ao ser clicado, exibir o filme em outra página(ok)
 - upload de fotos(ok)
-    - crud das fotos
+    - crud das capas(ok)
+    - crud dos banners
 - melhorar sistema de votação/avaliação
 

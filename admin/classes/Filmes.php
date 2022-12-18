@@ -54,16 +54,18 @@ class Filmes {
 
     }
 
-    public function editarFilmes($titulo,$descricao,$media) {
+    public function editarFilmes($titulo,$descricao,$media,$foto) {
         global $pdo;
         $id = filter_input(INPUT_GET, 'id');
 
-        if($id && $titulo && $descricao && $media) {
-            $sql = $pdo->prepare("UPDATE filmes SET titulo = :titulo, descricao = :descricao, media = :media WHERE id = :id");
+        if($id) {
+
+            $this->excluirArquivoImagem($id);
+            $sql = $pdo->prepare("UPDATE filmes SET titulo = :titulo, descricao = :descricao, media = :media, dir_foto = :foto WHERE id = :id");
             $sql->bindValue(':titulo', $titulo);
             $sql->bindValue(':descricao', $descricao);
             $sql->bindValue(':media', $media);
-            //$sql->bindValue(':foto', $foto);
+            $sql->bindValue(':foto', $foto);
             $sql->bindValue(':id', $id);
             $sql->execute();
 
@@ -104,6 +106,14 @@ class Filmes {
         $valor = $info['dir_foto'];
 
         unlink('../'.$valor);
+    }
+
+    public function excluirImagemDB($id) {
+        global $pdo;
+
+        $sql = $pdo->prepare("DELETE FROM filmes WHERE id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
     }
 
 }
