@@ -37,7 +37,7 @@ if($filme) {
     <?php require 'partials/header.php'; ?>
 
 
-    <section class="section-view-filme">
+    <section class="section-view-filme" style="width: 100%; height: 100vh; background-image: url('<?=$data['dir_foto'];?>'); background-repeat: no-repeat; background-size: cover;">
         <div class="single">
             <div class="area-section-view-filme">
                 <h1><?=$data['titulo'];?></h1>
@@ -58,6 +58,7 @@ if($filme) {
 
     <?php require 'partials/footer.php'; ?>
     
+    <script src="assets/script/script.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>

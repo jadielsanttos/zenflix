@@ -1,4 +1,4 @@
-<header>
+<header id="header">
     <div class="menu">
         <div class="logo">
             <a href="index.php"><h2>Zenflix</h2></a>

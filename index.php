@@ -16,12 +16,45 @@
 
     <div class="section-banner">
         <div class="section-item">
-            <img src="assets/images/batman.jpg" alt="">
+            <?php 
+            
+            $sql = $pdo->prepare("SELECT * FROM filmes");
+            $sql->execute();
+
+            $info = $sql->fetchAll();
+
+            $n = rand(0, count($info) - 1);
+
+            foreach($info as $key => $i) {
+                if($n === $key) { ?>
+                <img src="<?=$i['dir_foto'];?>">
+                <div class="section-banner-info">
+                    <div class="section-banner-info--title"><h2><?=$i['titulo'];?></h2></div>
+                    <div class="section-banner-info--descricao"><p><?=$i['descricao'];?></p></div>
+                    <div class="section-banner-info--avaliacao">
+                        <span>avaliação </span><span class="span-right">(<?=number_format($i['media'], 1);?>)</span>
+                    </div>
+                    <a href="filme.php?f=<?=$i['titulo'];?>">Detalhes</a>
+                </div>
+
+            <?php  
+                }
+
+            }//endforeach
+
+            
+            ?>
+    
+
+
+            <div class="shadow-horizontal"></div>
+            <div class="shadow-vertical"></div>
         </div>
     </div>
 
+
     <div class="main">
-        <h2>Adicionados recentemente</h2>
+        <div class="title-main"><h2>Adicionados recentemente</h2></div>
 
         <div class="listagem">
 
@@ -96,7 +129,9 @@
     <div style="height: 50px"></div>
 
     <?php require 'partials/footer.php'; ?>
-    
+
+
+    <script src="assets/script/script.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>
