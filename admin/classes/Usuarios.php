@@ -19,8 +19,7 @@ class Usuarios {
             header('location: index.php');
             exit;
         }else {
-            header('location: login.php');
-            exit;
+           echo '<div class="alert alert-danger">dados incorretos!</div>';
         }
 
     }

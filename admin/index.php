@@ -27,22 +27,61 @@ if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
 
     <section class="main">
         <div class="side-bar">
+            <div class="close-menu-btn"><i class="fa-solid fa-xmark"></i></div>
             <a href=""><h2>Zenflix</h2></a>
             <a href="../index.php">acessar site</a>
             <a href="logout.php">sair</a>
         </div>
+        
 
         <div class="content">
+            <div id="menu" class="menu">
+                <i class="fa-solid fa-bars" id="handleMenu"></i>
+            </div>
             <div class="title-form"><h2>Cadastrar novo filme <i id="angle-up1" class="fa-solid fa-angle-up"></i><i id="angle-down1" class="fa-solid fa-angle-down"></i></h2></div>
             <div class="form">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <label for="Nome do filme">Nome</label>
-                    <input type="text" name="titulo" placeholder="Nome do filme" required>
-                    <label for="Descrição">Descrição</label>
-                    <textarea name="descricao" id="" cols="30" rows="10" placeholder="Descrição do filme..." required></textarea>  
-                    <label for="foto">Capa do filme</label>
-                    <input type="file" name="foto">              
-                    <input type="submit" name="cadastrar" value="cadastrar">
+                <?php 
+                    if(isset($_POST['cadastrar'])) {
+                        $titulo = addslashes($_POST['titulo']);
+                        $descricao = addslashes($_POST['descricao']);
+                        
+                        $nome_arquivo = $_FILES['foto']['name'];
+                        $caminho_atual = $_FILES['foto']['tmp_name'];
+                        $nome_novo = md5(time().rand(0,999)).'.jpg';
+                        $caminho_salvar = 'images/capa_filme/'.$nome_novo;
+                        $diretorio_final = 'admin/images/capa_filme/'.$nome_novo;
+
+                        if($titulo && $descricao && $nome_arquivo) {
+                            if(move_uploaded_file($caminho_atual, $caminho_salvar)) {
+                                $filmes->cadastrarFilmes($titulo,$descricao,$diretorio_final);
+                            }
+                        }else { ?>
+
+                        <div class="alert alert-warning" style="margin: 5px;">
+                            <span>os campos não podem ser vazios</span>
+                        </div>
+                    <?php  
+                        }
+                    }
+                ?>
+                <form action="" method="post" enctype="multipart/form-data" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="Nome do filme">Nome</label>
+                        <input type="text" name="titulo" placeholder="Nome do filme">
+
+                        <label for="Descrição">Descrição</label>
+                        <textarea name="descricao" id="" cols="30" rows="5" placeholder="Descrição do filme..."></textarea>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label for="foto">Capa do filme</label>
+                        <input type="file" name="foto"> 
+                    </div> 
+                    
+                    <div class="col-md-6">
+                        <input type="submit" name="cadastrar" value="cadastrar">
+                    </div>
+                    
                 </form>
             </div>
 
@@ -51,7 +90,6 @@ if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
                 <table id="table-special" class="table table-striped">
                     <tr>
                         <th>Nome</th>
-                        <th>Descrição</th>
                         <th>Avaliação</th>
                         <th>Ação</th>
                     </tr>
@@ -63,31 +101,13 @@ if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
     </section>
 
 
-    <?php 
-        
-        if(isset($_POST['cadastrar'])) {
-            $titulo = addslashes($_POST['titulo']);
-            $descricao = addslashes($_POST['descricao']);
-            
-            $nome_arquivo = $_FILES['foto']['name'];
-            $caminho_atual = $_FILES['foto']['tmp_name'];
-            $nome_novo = md5(time().rand(0,999)).'.jpg';
-            $caminho_salvar = 'images/capa_filme/'.$nome_novo;
-            $diretorio_final = 'admin/images/capa_filme/'.$nome_novo;
-
-            if(move_uploaded_file($caminho_atual, $caminho_salvar)) {
-                $filmes->cadastrarFilmes($titulo,$descricao,$diretorio_final);
-            }
-
-        }
-
-    ?>
-
 
     <script>
 
         document.querySelector('.title-form').addEventListener('click', showForm);
         document.querySelector('.title-filmes').addEventListener('click', showTable);
+        document.querySelector('#handleMenu').addEventListener('click', openSideBar);
+        document.querySelector('.close-menu-btn').addEventListener('click', closeSideBar);
 
         function showForm() {
             let angle_up = document.getElementById('angle-up1');
@@ -120,11 +140,29 @@ if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
             }
         }
 
+        function openSideBar() {
+            let sidebar = document.querySelector('.side-bar');
+            let right_side = document.querySelector('.content');
 
 
+            if(sidebar.style.display == 'block') {
+                sidebar.style.display = 'none';
+            }else {
+                sidebar.style.display = 'block';
+            }
+        }
+
+        function closeSideBar() {
+            let sidebar = document.querySelector('.side-bar');
+
+            if(sidebar.style.display == 'block') {
+                sidebar.style.display = 'none';
+            }
+        }
 
     </script>
 
+    <script src="../assets/script/script.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

@@ -12,8 +12,6 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
     exit;
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +48,7 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
     ?>
         </div>
     </div>
+
 
     <?php require 'partials/footer.php'; ?>
 

@@ -38,16 +38,28 @@ header .menu .logo a {
 }
 
 header .menu .busca input[type='search'] {
-    padding: 5px;
+    padding: 5px 5px 5px 40px;
     outline: 0;
     border: none;
     border-radius: 5px;
     font-size: 17px;
 }
 
-header .menu .busca input[type='search']:focus {
-    width: 260px;
+header .menu .busca i {
+    position: absolute;
+    top: 32px;
+    right: 280px;
+    color: #444;
 }
+
+header .menu .busca input[type='search']:focus {
+    border: 1px solid #000;
+}
+
+header .menu .busca input[type='search']:focus ~ i {
+    color: #000;
+}
+
 
 header .menu .busca button {
     padding: 5px 10px;
@@ -58,20 +70,20 @@ header .menu .busca button {
 }
 
 /* area busca */
+
 .busca {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    height: 100%;
 }
 
 .busca h1 {
     margin-top: 20px;
+    margin-left: 70px;
+    font-size: 25px;
 }
 
 .busca .resultado-busca  {
     margin-top: 10px;
-    max-width: 1200px;
+    max-width: 1350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,13 +91,13 @@ header .menu .busca button {
 }
 
 .busca .resultado-busca .resultado-busca-item {
-    max-width: calc(1200px / 5);
+    max-width: calc(1350px / 6);
     border: 1px solid #444;
     border-radius: 10px;
     margin: 5px 10px;
 }
 
-.busca .resultado-busca .resultado-busca-item .link-item-listagem {
+.busca .resultado-busca .link-item-listagem {
     text-decoration: none;
     color: #fff;
 }
@@ -100,14 +112,16 @@ header .menu .busca button {
     padding: 5px;
 }
 
-.busca .resultado-busca .resultado-busca-item .fa-star {
-    color: rgb(201, 201, 0);
-    text-decoration: none;
+.busca .resultado-busca .resultado-busca-item .area-info span {
+    font-size: 14px;
+    color: rgb(255, 243, 79);
 }
 
-.busca .resultado-busca .resultado-busca-item .fa-star:hover {
-    color: yellow;
+.busca .resultado-busca .resultado-busca-item .area-info .fa-star {
+    color: rgb(255, 243, 79);
+    font-size: 14px;
 }
+
 
 /* footer area */
 
@@ -119,4 +133,40 @@ footer .footer-area {
     height: 80px;
     background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
     margin-top: 20px;
+}
+
+/* medias */
+
+@media (max-width: 1024px) {
+    header .menu {
+        padding: 0 70px;
+    }
+}
+
+@media (max-width: 500px) {
+    header .menu {
+        padding: 10px;
+    }
+    header .menu .logo {
+        margin-left: 10px;
+    }
+    header .menu .busca i {
+        right: 220px;
+    }
+    .busca h1 {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 375px) {
+    header .menu .busca input[type="search"] {
+        width: 180px;
+    }
+    header .menu .logo h2 {
+        font-size: 25px;
+    }
+    header .menu .busca i {
+        right: 160px;
+    }
 }

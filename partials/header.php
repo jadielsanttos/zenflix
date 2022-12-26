@@ -6,9 +6,10 @@
 
         <div class="busca">
             <form method="get" action="busca.php">
-                <input type="search" name="q" placeholder="buscar filmes...">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                <!-- <input type="submit" value="buscar"> -->
+                <div class="area-search">
+                    <input type="search" name="q" placeholder="buscar filmes...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
             </form>
         </div>
     </div>

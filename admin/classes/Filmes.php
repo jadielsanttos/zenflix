@@ -37,9 +37,8 @@ class Filmes {
             foreach($info as $filme) { ?>
                 <tr>
                     <td><?=$filme['titulo'];?></td>
-                    <td><?=$filme['descricao'];?></td>
-                    <td><?=$filme['media'];?></td>
-                    <td>
+                    <td><?=number_format($filme['media'], 2);?></td>
+                    <td class="td-single">
                         <a href="editar.php?id=<?=$filme['id'];?>" id="link-edit"><i class="fa-solid fa-pen"></i></a>
                         <a href="excluir.php?id=<?=$filme['id'];?>" id="link-delete" onclick="return confirm('Deseja excluir mesmo?')"><i class="fa-solid fa-trash"></i></a>
                     </td>

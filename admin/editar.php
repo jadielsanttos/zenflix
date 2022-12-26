@@ -44,6 +44,7 @@ if($id_filme) {
 
     <section class="main">
         <div class="side-bar">
+        <div class="close-menu-btn"><i class="fa-solid fa-xmark"></i></div>
         <a href="index.php"><h2>Zenflix</h2></a>
             <a href="../index.php">acessar site</a>
             <a href="logout.php">sair</a>
@@ -51,25 +52,36 @@ if($id_filme) {
 
 
         <div class="content">
+            <div id="menu" class="menu">
+                <i class="fa-solid fa-bars" id="handleMenu"></i>
+            </div>
             <div class="title-edit"><h2>Editar filmes <i id="angle-up" class="fa-solid fa-angle-up"></i><i id="angle-down" class="fa-solid fa-angle-down"></i></h2></div>
             <div class="form">
-                <form method="post" enctype="multipart/form-data">
-                    <h4>Capa do filme</h4>
-                    <img src="../<?=$data['dir_foto'];?>" class="show-capa"><br>
+                <form method="post" enctype="multipart/form-data" class="row g-3">
 
                     <input type="hidden" name="id" value="<?=$data['id'];?>">
-                    <label for="Nome do filme">Nome</label>
-                    <input type="text" name="titulo" placeholder="Nome do filme" value="<?=$data['titulo'];?>">
-                    
-                    <label for="Descrição">Descrição</label>
-                    <textarea name="descricao" id="" cols="30" rows="10" placeholder="Descrição do filme..."><?=$data['descricao'];?></textarea>
-                    
-                    <label for="Media">Media</label>
-                    <input type="text" name="media" value="<?=$data['media'];?>">
 
-                    <label for="AlterarCapa">Alterar capa</label>
-                    <input type="file" name="AlterarCapa">
-                    <input type="submit" name="salvar" value="salvar">
+                    <div class="col-md-6">
+                        <label for="Nome do filme">Nome</label>
+                        <input type="text" name="titulo" placeholder="Nome do filme" value="<?=$data['titulo'];?>">
+
+                        <label for="Descrição">Descrição</label>
+                        <textarea name="descricao" id="" cols="30" rows="5" placeholder="Descrição do filme..."><?=$data['descricao'];?></textarea>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="Media">Media</label>
+                        <input type="text" name="media" value="<?=$data['media'];?>">
+
+                        <h4>Capa do filme</h4>
+                        <img src="../<?=$data['dir_foto'];?>" class="show-capa"><br>
+                        <label for="AlterarCapa">Alterar capa</label>
+                        <input type="file" name="AlterarCapa">
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="submit" name="salvar" value="salvar">
+                    </div>
                 </form>
 
             </div>
@@ -105,6 +117,8 @@ if($id_filme) {
     <script>
 
         document.querySelector('.title-edit').addEventListener('click', showForm);
+        document.querySelector('#handleMenu').addEventListener('click', openSideBar);
+        document.querySelector('.close-menu-btn').addEventListener('click', closeSideBar);
 
         function showForm() {
             let angle_up = document.getElementById('angle-up');
@@ -119,6 +133,26 @@ if($id_filme) {
                 angle_up.style.display = 'block';
                 angle_down.style.display = 'none';
                 form.style.display = 'block';
+            }
+        }
+
+        function openSideBar() {
+            let sidebar = document.querySelector('.side-bar');
+            let right_side = document.querySelector('.content');
+
+
+            if(sidebar.style.display == 'block') {
+                sidebar.style.display = 'none';
+            }else {
+                sidebar.style.display = 'block';
+            }
+        }
+
+        function closeSideBar() {
+            let sidebar = document.querySelector('.side-bar');
+
+            if(sidebar.style.display == 'block') {
+                sidebar.style.display = 'none';
             }
         }
 

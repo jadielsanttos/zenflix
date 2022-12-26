@@ -49,7 +49,7 @@ if($filme) {
                     <a href="voto.php?id=<?=$data['id'];?>&voto=3"><i class="fa-solid fa-star"></i></a>
                     <a href="voto.php?id=<?=$data['id'];?>&voto=4"><i class="fa-solid fa-star"></i></a>
                     <a href="voto.php?id=<?=$data['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
-                    <span>(<?=number_format($data['media'], 2);?>)</span>
+                    <span>(<?=number_format($data['media'], 1);?>)</span>
                 </div>
                 <button>assistir</button>
             </div>

@@ -17,9 +17,10 @@ html, body {
     height: 100%;
 }
 .main .side-bar {
-    width: 20%;
+    display: none;
+    width: 200px;
     height: 100%;
-    background-color: #000;
+    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
     color: #fff;
     padding: 10px;
     position: fixed;
@@ -28,10 +29,20 @@ html, body {
     bottom: 0;
 }
 
+.main .side-bar .close-menu-btn {
+    cursor: pointer;
+    float: right;
+}
+
+.main .side-bar .close-menu-btn i {
+    font-size: 30px;
+}
+
 .main .side-bar h2 {
     font-size: 30px;
     padding-bottom: 10px;
     padding-left: 5px;
+    padding-top: 30px;
 }
 
 .main .side-bar a {
@@ -46,13 +57,25 @@ html, body {
     background-color: #444;
 }
 
-.main .side-bar a:hover:first-child {
+.main .side-bar a:hover:nth-child(2) {
     background-color: initial;
 }
 
 .content {
-    width: 80%;
-    margin-left: 20%;
+    width: 100%;
+    margin-left: 0;
+}
+
+.content .menu {
+    width: 100%;
+    padding: 5px 0 5px 10px;
+    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+}
+
+.content .menu i {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
 }
 
 .content #angle-up, #angle-up1 {
@@ -66,7 +89,7 @@ html, body {
 .content .title-form, .content .title-edit {
     margin: 0 10px;
     cursor: pointer;
-    background-color: #444;
+    background-color: rgb(4, 0, 15);
     color: #fff;
     margin-top: 10px;
     height: 45px;
@@ -84,7 +107,10 @@ html, body {
     float: right;
     padding: 5px;
 }
-
+.content .form {
+    margin: 0 10px;
+    border: 1px solid #ccc;
+}
 .content .form form {
     padding: 10px;
 }
@@ -102,7 +128,7 @@ html, body {
 }
 
 .content .form form input[type='submit'] {
-    padding: 5px 10px;
+    padding: 5px 20px;
     font-size: 17px;
     background-color: #000;
     color: #fff;
@@ -113,6 +139,7 @@ html, body {
 
 .content .form .show-capa {
     width: 220px;
+    height: 150px;
     margin-bottom: 10px;
 }
 
@@ -120,7 +147,7 @@ html, body {
     border: 1px solid #ccc;
     margin: 0 10px;
     cursor: pointer;
-    background-color: #444;
+    background-color: rgb(4, 0, 15);
     color: #fff;
     margin-top: 30px;
     height: 45px;
@@ -173,11 +200,6 @@ html, body {
     color: #000;
 }
 
-.area-login-painel .right-side {
-    width: 70%;
-    background-color: #eee;
-}
-
 .area-login-painel .form-login-painel form input {
     width: 100%;
     padding: 15px 10px;
@@ -192,11 +214,62 @@ html, body {
     cursor: pointer;
     color: #fff;
     background-color: #000;
+    margin-bottom: 10px;
 }
 
 .area-login-painel .form-login-painel form a {
-    display: block;
     text-decoration: none;
     color: #333;
-    margin-top: 20px;
+}
+
+.area-login-painel .right-side {
+    width: 70%;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.area-login-painel .right-side a {
+    text-decoration: none;
+    color: #000;
+}
+
+.area-login-painel .right-side h1 {
+    font-size: 40px;
+    border-bottom: 1px solid #000;
+    width: 200px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .area-login-painel .form-login-painel {
+        width: 55%;
+    }
+    .area-login-painel .right-side {
+        width: 45%;
+    }
+}
+@media (max-width: 600px) {
+     .main .side-bar {
+        /* width: 150px; */
+     }
+}
+
+@media (max-width: 500px) {
+    .area-login-painel .right-side {
+        display: none;
+    }
+    .area-login-painel .form-login-painel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 343px) {
+    .area-filmes table .td-single {
+        width: 95px;
+    }
 }

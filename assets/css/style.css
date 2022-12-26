@@ -9,13 +9,11 @@
 html, body {
     width: 100%;
     height: 100vh;
-    /* background-image: linear-gradient(to right, rgb(32, 0, 21), rgb(4, 0, 15)); */
     background-color: rgb(4, 0, 15);
     color: #fff;
 }
 
 header {
-    /* background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8)); */
     position: fixed;
     top: 0;
     left: 0;
@@ -29,7 +27,6 @@ header .menu {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    /* background-image: linear-gradient(to right, rgb(32, 0, 21), rgb(11, 0, 41)); */
 }
 
 header .menu .logo, header .menu .busca {
@@ -45,27 +42,30 @@ header .menu .logo a {
 }
 
 header .menu .busca input[type='search'] {
-    padding: 5px;
+    padding: 5px 5px 5px 40px;
     outline: 0;
     border: none;
     border-radius: 5px;
     font-size: 17px;
 }
 
+header .menu .busca i {
+    position: absolute;
+    top: 32px;
+    right: 280px;
+    color: #444;
+}
+
 header .menu .busca input[type='search']:focus {
-    width: 260px;
+    border: 1px solid #000;
 }
 
-header .menu .busca button {
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 17px;
-    border-radius: 5px;
-    background-color: #fff;
-    border: none;
+header .menu .busca input[type='search']:focus ~ i {
+    color: #000;
 }
 
-/* section banner */
+
+/* sessao banner */
 
 .section-banner {
     width: 100%;
@@ -98,8 +98,8 @@ header .menu .busca button {
 }
 
 .section-banner .section-item .section-banner-info 
-.section-banner-info--avaliacao .span-right {
-    color: rgb(201, 201, 0);
+.section-banner-info--avaliacao span {
+    color: rgb(255, 243, 79);
 }
 
 .section-banner .section-item .section-banner-info a {
@@ -139,21 +139,14 @@ header .menu .busca button {
 
 /* listagem dos filmes */
 
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 .main .title-main {
-    width: 75%;
     margin-top: 40px;
+    margin-left: 70px;
 }
 
 .main .listagem {
     margin-top: 10px;
-    max-width: 1200px;
+    max-width: 1350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,12 +158,8 @@ header .menu .busca button {
     color: #fff;
 }
 
-.main .listagem .item-listagem .area-info {
-    padding: 5px;
-}
-
 .main .listagem .item-listagem {
-    max-width: calc(1200px / 6);
+    width: calc(1350px / 6);
     border: 1px solid #444;
     border-radius: 10px;
     margin: 5px 10px;
@@ -182,37 +171,31 @@ header .menu .busca button {
     border-radius: 10px 10px 0 0;
 }
 
+.main .listagem .item-listagem .area-info {
+    padding: 5px;
+}
+
+.main .listagem .item-listagem .area-info span {
+    font-size: 14px;
+    color: rgb(255, 243, 79);
+}
+
 .main .listagem .item-listagem .fa-star {
-    color: rgb(201, 201, 0);
+    color: rgb(255, 243, 79);
+    font-size: 14px;
     text-decoration: none;
 }
 
-.main .listagem .item-listagem .fa-star:hover {
-    color: yellow;
-}
-
-
-/* section filmes mais avaliados */
-
-.section-single {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+/* sessao filmes mais avaliados */
 
 .section-single .title-section-single {
-    width: 75%;
     margin-top: 40px;
-}
-
-.section-single .title-section-single {
-    margin-top: 20px;
+    margin-left: 70px;
 }
 
 .section-single .listagem {
     margin-top: 10px;
-    max-width: 1200px;
+    max-width: 1350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,7 +203,7 @@ header .menu .busca button {
 }
 
 .section-single .listagem .item-listagem {
-    max-width: calc(1200px / 6);
+    width: calc(1350px / 6);
     border: 1px solid #444;
     border-radius: 10px;
     margin: 5px 10px;
@@ -241,39 +224,34 @@ header .menu .busca button {
     padding: 5px;
 }
 
-.section-single .listagem .item-listagem .fa-star {
-    color: rgb(201, 201, 0);
-    text-decoration: none;
+.section-single .listagem .item-listagem .area-info span {
+    font-size: 14px;
+    color: rgb(255, 243, 79);
 }
 
-.section-single .listagem .item-listagem .fa-star:hover {
-    color: yellow;
+.section-single .listagem .item-listagem .fa-star {
+    color: rgb(255, 243, 79);
+    font-size: 14px;
+    text-decoration: none;
 }
 
 /* sessao view filme */
 
-/* .section-view-filme {
-    background-image: url('../images/Robô.jpg');
-    background-size: cover;
-    background-position: right;
-    width: 100%;
-    height: 100vh;
-} */
-
 .section-view-filme .single {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
+    background-image: linear-gradient(to right, rgba(0,0,0,0.9), transparent);
 }
 
 .section-view-filme .area-section-view-filme {
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items: flex-start;
     flex-direction: column;
     margin: 0 auto;
     max-width: 1200px;
-    padding-top: 20%;
+    padding-top: 250px;
+    /* padding-left: 70px; */
 }
 
 .section-view-filme .area-section-view-filme h1 {
@@ -324,4 +302,82 @@ footer .footer-area {
     width: 100%;
     height: 80px;
     background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+}
+
+@media (max-width: 1024px) {
+    header .menu {
+        padding: 0 70px;
+    }
+    .section-view-filme .area-section-view-filme {
+        padding-left: 70px;
+    }
+}
+
+@media (max-width: 500px) {
+    header .menu {
+        padding: 10px;
+    }
+    header .menu .logo {
+        margin-left: 10px;
+    }
+    header .menu .busca i {
+        right: 220px;  
+    }
+    .section-banner .section-item .section-banner-info {
+        left: 10px;
+        margin-left: 10px;
+    }
+    .main .title-main,
+    .section-single .title-section-single {
+        text-align: center;
+        margin-left: 0;
+    }
+    .section-view-filme {
+        background-position: center;
+    }
+    .section-view-filme .area-section-view-filme {
+        padding-top: 200px;
+        padding-left: 10px;
+    }
+    .section-view-filme .single .area-section-view-filme h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .section-banner {
+        height: 400px;
+    }
+    .section-banner .section-item .section-banner-info {
+        top: 170px;
+    }
+    .section-banner .section-item .section-banner-info h2 {
+        font-size: 30px;
+    }
+    .section-banner .section-item img {
+        height: 400px;
+    }
+    .section-banner .section-item .shadow-horizontal,
+    .section-banner .section-item .shadow-vertical {
+        height: 400px;
+    }
+    .main .title-main h2 {
+        font-size: 22px;
+    }
+    .section-single .title-section-single h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 375px) {
+    header .menu .busca input[type='search'] {
+        width: 180px;
+        font-size: 14px;
+    }
+    header .menu .logo h2 {
+        font-size: 25px;
+    }
+    header .menu .busca i {
+        right: 160px;  
+    }
 }

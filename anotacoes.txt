@@ -9,5 +9,8 @@
 - ao ser clicado, exibir o filme em outra página(ok)
 - upload de fotos(ok)
     - crud das capas(ok)
+- responsivo geral(ok)
+    - painel(ok)
+- fazer validações em todo backend(ok)
 - melhorar sistema de votação/avaliação
 

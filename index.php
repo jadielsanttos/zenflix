@@ -32,7 +32,7 @@
                     <div class="section-banner-info--title"><h2><?=$i['titulo'];?></h2></div>
                     <div class="section-banner-info--descricao"><p><?=$i['descricao'];?></p></div>
                     <div class="section-banner-info--avaliacao">
-                        <span>avaliação </span><span class="span-right">(<?=number_format($i['media'], 1);?>)</span>
+                        <span class="span-right"><?=number_format($i['media'], 1);?> <i class="fa-solid fa-star"></i></span>
                     </div>
                     <a href="filme.php?f=<?=$i['titulo'];?>">Detalhes</a>
                 </div>
@@ -70,13 +70,7 @@
                         <img src="<?=$filme['dir_foto'];?>" alt="">
                         <div class="area-info">
                             <h3><?=$filme['titulo'];?></h3>
-                            <p><?=$filme['descricao'];?></p>
-                            <a href="voto.php?id=<?=$filme['id'];?>&voto=1"><i class="fa-solid fa-star"></i></a>
-                            <a href="voto.php?id=<?=$filme['id'];?>&voto=2"><i class="fa-solid fa-star"></i></a>
-                            <a href="voto.php?id=<?=$filme['id'];?>&voto=3"><i class="fa-solid fa-star"></i></a>
-                            <a href="voto.php?id=<?=$filme['id'];?>&voto=4"><i class="fa-solid fa-star"></i></a>
-                            <a href="voto.php?id=<?=$filme['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
-                            <span>(<?=number_format($filme['media'], 2);?>)</span>
+                            <span><?=number_format($filme['media'], 1);?> <i class="fa-solid fa-star"></i></span>
                         </div>
                     </div>
                 </a>
@@ -107,13 +101,7 @@
                         <img src="<?=$item['dir_foto'];?>" alt="">
                         <div class="area-info">
                             <h3><?=$item['titulo'];?></h3>
-                            <p><?=$item['descricao'];?></p>
-                            <a href="voto.php?id=<?=$item['id'];?>&voto=1"><i class="fa-solid fa-star"></i></a>
-                            <a href="voto.php?id=<?=$item['id'];?>&voto=2"><i class="fa-solid fa-star"></i></a>
-                            <a href="voto.php?id=<?=$item['id'];?>&voto=3"><i class="fa-solid fa-star"></i></a>
-                            <a href="voto.php?id=<?=$item['id'];?>&voto=4"><i class="fa-solid fa-star"></i></a>
-                            <a href="voto.php?id=<?=$item['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
-                            <span>(<?=number_format($item['media'], 2);?>)</span>
+                            <span><?=number_format($item['media'], 1);?> <i class="fa-solid fa-star"></i></span>
                         </div>
                     </div>
                 </a>
