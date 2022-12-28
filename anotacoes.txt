@@ -12,5 +12,7 @@
 - responsivo geral(ok)
     - painel(ok)
 - fazer validações em todo backend(ok)
+- inserir trailer(ok)
+- corrigir bug do editar
 - melhorar sistema de votação/avaliação
 

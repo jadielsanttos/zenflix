@@ -10,3 +10,25 @@ function scrolListener() {
     }
 }
 
+function closeModal() {
+    let AreaTrailer = document.querySelector('.area-trailer');
+    let fade = document.querySelector('.fade');
+
+    if(AreaTrailer.style.display == 'block' && fade.style.display == 'block') {
+        AreaTrailer.style.display = 'none';
+        fade.style.display = 'none';
+    }
+}
+
+function openModal() {
+    let AreaTrailer = document.querySelector('.area-trailer');
+    let fade = document.querySelector('.fade');
+
+    if(AreaTrailer.style.display == 'block' && fade.style.display == 'block') {
+        AreaTrailer.style.display = 'none';
+        fade.style.display = 'none';
+    }else {
+        AreaTrailer.style.display = 'block';
+        fade.style.display = 'block';
+    }
+}

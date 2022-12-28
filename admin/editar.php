@@ -67,16 +67,18 @@ if($id_filme) {
 
                         <label for="Descrição">Descrição</label>
                         <textarea name="descricao" id="" cols="30" rows="5" placeholder="Descrição do filme..."><?=$data['descricao'];?></textarea>
+
+                        <label for="Media">Media</label>
+                        <input type="text" name="media" value="<?=$data['media'];?>">
                     </div>
                     
                     <div class="col-md-6">
-                        <label for="Media">Media</label>
-                        <input type="text" name="media" value="<?=$data['media'];?>">
-
                         <h4>Capa do filme</h4>
                         <img src="../<?=$data['dir_foto'];?>" class="show-capa"><br>
                         <label for="AlterarCapa">Alterar capa</label>
                         <input type="file" name="AlterarCapa">
+
+                        
                     </div>
 
                     <div class="col-md-4">
@@ -106,11 +108,10 @@ if($id_filme) {
 
                 if(move_uploaded_file($caminho_atual, $caminho_salvar)) {
                     $filmes->editarFilmes($titulo,$descricao,$media,$diretorio_final);
-                }
+                }           
             }
 
-        }
-        
+        }       
 
     ?>
 

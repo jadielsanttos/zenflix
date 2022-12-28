@@ -58,13 +58,13 @@ class Filmes {
         $id = filter_input(INPUT_GET, 'id');
 
         if($id) {
-
             $this->excluirArquivoImagem($id);
             $sql = $pdo->prepare("UPDATE filmes SET titulo = :titulo, descricao = :descricao, media = :media, dir_foto = :foto WHERE id = :id");
             $sql->bindValue(':titulo', $titulo);
             $sql->bindValue(':descricao', $descricao);
             $sql->bindValue(':media', $media);
             $sql->bindValue(':foto', $foto);
+            //$sql->bindValue(':url_trailer', $url_trailer);
             $sql->bindValue(':id', $id);
             $sql->execute();
 

@@ -51,9 +51,15 @@ if($filme) {
                     <a href="voto.php?id=<?=$data['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
                     <span>(<?=number_format($data['media'], 1);?>)</span>
                 </div>
-                <button>assistir</button>
+                <button class="btn-open-modal-trailer" onclick="openModal()">Trailer</button>
+            </div>
+            <div class="fade"></div>
+            <div class="area-trailer">
+                <button class="btn-close-modal-trailer" onclick="closeModal()">Fechar</button>
+                <iframe width="600" height="400" src="<?=$data['url_trailer'];?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
+
     </section>
 
     <?php require 'partials/footer.php'; ?>

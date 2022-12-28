@@ -293,6 +293,37 @@ header .menu .busca input[type='search']:focus ~ i {
     background-image: linear-gradient(to right, rgb(2, 0, 8), rgb(17, 0, 11));
 }
 
+.fade {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 999;
+}
+
+.single .area-trailer {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    z-index: 1000;
+}
+
+.single .area-trailer button {
+    padding: 10px 10px;
+    background-color: rgb(17, 0, 11);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    font-size: 16px;
+}
 /* footer geral area */
 
 footer .footer-area {
@@ -310,6 +341,17 @@ footer .footer-area {
     }
     .section-view-filme .area-section-view-filme {
         padding-left: 70px;
+    }
+}
+
+@media (max-width: 630px) {
+    .single .area-trailer {
+        width: 400px;
+        height: 320px;
+    }
+    .single .area-trailer iframe {
+        width: 400px;
+        height: 320px;
     }
 }
 
@@ -379,5 +421,14 @@ footer .footer-area {
     }
     header .menu .busca i {
         right: 160px;  
+    }
+
+    .single .area-trailer {
+        width: 300px;
+        height: 200px;
+    }
+    .single .area-trailer iframe {
+        width: 300px;
+        height: 300px;
     }
 }
