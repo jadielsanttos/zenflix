@@ -24,7 +24,7 @@ if($id_filme) {
         $data = $sql->fetch(PDO::FETCH_ASSOC);
     }
 }else {
-    header('location: editar.php');
+    header('location: index.php');
     exit;
 }
 
@@ -55,7 +55,10 @@ if($id_filme) {
             <div id="menu" class="menu">
                 <i class="fa-solid fa-bars" id="handleMenu"></i>
             </div>
-            <div class="title-edit"><h2>Editar filmes <i id="angle-up" class="fa-solid fa-angle-up"></i><i id="angle-down" class="fa-solid fa-angle-down"></i></h2></div>
+            <div class="btn-voltar">
+                <a href="index.php"><i class="fa-solid fa-arrow-left-long"></i> Voltar</a>
+            </div>
+            <div class="title-edit"><h2>Editar filme <i id="angle-up" class="fa-solid fa-angle-up"></i><i id="angle-down" class="fa-solid fa-angle-down"></i></h2></div>
             <div class="form">
                 <form method="post" enctype="multipart/form-data" class="row g-3">
 
@@ -78,7 +81,8 @@ if($id_filme) {
                         <label for="AlterarCapa">Alterar capa</label>
                         <input type="file" name="AlterarCapa">
 
-                        
+                        <label for="AlterarTrailer">Trailer(url)</label>
+                        <input type="text" name="url_trailer" value="<?=$data['url_trailer'];?>">
                     </div>
 
                     <div class="col-md-4">
@@ -98,6 +102,7 @@ if($id_filme) {
             $titulo = addslashes($_POST['titulo']);
             $descricao = addslashes($_POST['descricao']);
             $media = addslashes($_POST['media']);
+            $url_trailer = addslashes($_POST['url_trailer']);
 
             if(isset($_FILES['AlterarCapa']) && !empty($_FILES['AlterarCapa']['tmp_name'])) {
                 $nome_arquivo = $_FILES['AlterarCapa']['name'];
@@ -107,9 +112,12 @@ if($id_filme) {
                 $diretorio_final = 'admin/images/capa_filme/'.$nome_novo;
 
                 if(move_uploaded_file($caminho_atual, $caminho_salvar)) {
-                    $filmes->editarFilmes($titulo,$descricao,$media,$diretorio_final);
-                }           
+                    $filmes->editarCapaFilmes($diretorio_final);
+                }
+                                
             }
+
+            $filmes->editarFilmes($titulo,$descricao,$media,$url_trailer);
 
         }       
 

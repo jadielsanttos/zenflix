@@ -4,7 +4,7 @@ $filmes = new Filmes();
 
 $id = filter_input(INPUT_GET, 'id');
 
-$filmes->excluirFilme($id);
+$filmes->excluirFilmes($id);
 
 /*
 if($id) {

@@ -82,6 +82,21 @@ html, body {
     display: none;
 }
 
+.content .btn-voltar {
+    padding: 10px 0 0 10px;
+}
+.content .btn-voltar a {
+    text-decoration: none;
+    color: #000;
+    /* margin-left: 10px; */
+    font-size: 20px;
+}
+
+.content .btn-voltar a i {
+    font-size: 20px;
+    color: #000;
+}
+
 .content .form {
     display: none;
 }

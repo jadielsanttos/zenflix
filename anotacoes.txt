@@ -13,6 +13,6 @@
     - painel(ok)
 - fazer validações em todo backend(ok)
 - inserir trailer(ok)
-- corrigir bug do editar
+- corrigir bug do editar(ok)
 - melhorar sistema de votação/avaliação
 
