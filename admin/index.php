@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once 'classes/Usuarios.php';
 require_once 'classes/Filmes.php';
 $filmes = new Filmes(); 

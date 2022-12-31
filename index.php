@@ -69,7 +69,7 @@
                     <div class="item-listagem">
                         <img src="<?=$filme['dir_foto'];?>" alt="">
                         <div class="area-info">
-                            <h3><?=$filme['titulo'];?></h3>
+                            <h3 class="title-filme"><?=$filme['titulo'];?></h3>
                             <span><?=number_format($filme['media'], 1);?> <i class="fa-solid fa-star"></i></span>
                         </div>
                     </div>

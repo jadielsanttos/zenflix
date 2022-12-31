@@ -9,7 +9,7 @@ class Usuarios {
         global $pdo;
         $sql = $pdo->prepare("SELECT * FROM usuarios_admin WHERE email_usuario_admin = :email AND senha_usuario_admin = :senha");
         $sql->bindValue(':email', $email);
-        $sql->bindValue(':senha', $password);
+        $sql->bindValue(':senha', md5($password));
         $sql->execute();
 
         if($sql->rowCount() > 0) {

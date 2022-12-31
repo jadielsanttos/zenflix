@@ -39,27 +39,28 @@ if($filme) {
 
     <section class="section-view-filme" style="width: 100%; height: 100vh; background-image: url('<?=$data['dir_foto'];?>'); background-repeat: no-repeat; background-size: cover;">
         <div class="single">
-            <div class="area-section-view-filme">
-                <h1><?=$data['titulo'];?></h1>
-                <p><?=$data['descricao'];?></p>
-                <span>avaliação</span>
-                <div class="link-avaliacao">
-                    <a href="voto.php?id=<?=$data['id'];?>&voto=1"><i class="fa-solid fa-star"></i></a>
-                    <a href="voto.php?id=<?=$data['id'];?>&voto=2"><i class="fa-solid fa-star"></i></a>
-                    <a href="voto.php?id=<?=$data['id'];?>&voto=3"><i class="fa-solid fa-star"></i></a>
-                    <a href="voto.php?id=<?=$data['id'];?>&voto=4"><i class="fa-solid fa-star"></i></a>
-                    <a href="voto.php?id=<?=$data['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
-                    <span>(<?=number_format($data['media'], 1);?>)</span>
+            <div class="area-shadow">
+                <div class="area-section-view-filme">
+                    <h1><?=$data['titulo'];?></h1>
+                    <p><?=$data['descricao'];?></p>
+                    <span>avaliar filme</span>
+                    <div class="link-avaliacao">
+                        <a href="voto.php?id=<?=$data['id'];?>&voto=1"><i class="fa-solid fa-star"></i></a>
+                        <a href="voto.php?id=<?=$data['id'];?>&voto=2"><i class="fa-solid fa-star"></i></a>
+                        <a href="voto.php?id=<?=$data['id'];?>&voto=3"><i class="fa-solid fa-star"></i></a>
+                        <a href="voto.php?id=<?=$data['id'];?>&voto=4"><i class="fa-solid fa-star"></i></a>
+                        <a href="voto.php?id=<?=$data['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
+                        <span>(<?=number_format($data['media'], 1);?>)</span>
+                    </div>
+                    <button class="btn-open-modal-trailer" onclick="openModal()">Trailer</button>
                 </div>
-                <button class="btn-open-modal-trailer" onclick="openModal()">Trailer</button>
-            </div>
-            <div class="fade"></div>
-            <div class="area-trailer">
-                <button class="btn-close-modal-trailer" onclick="closeModal()">Fechar</button>
-                <iframe width="600" height="400" src="<?=$data['url_trailer'];?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="fade"></div>
+                <div class="area-trailer">
+                    <button class="btn-close-modal-trailer" onclick="closeModal()">Fechar</button>
+                    <iframe width="600" height="400" src="<?=$data['url_trailer'];?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
-
     </section>
 
     <?php require 'partials/footer.php'; ?>
