@@ -1,4 +1,4 @@
-<a class="link-item-listagem" href="filme.php?f=<?=$item['titulo'];?>">
+<a class="link-item-listagem" href="filme.php?f=<?=base64_encode($item['titulo']);?>">
     <div class="resultado-busca-item">
         <img src="<?=$item['dir_foto'];?>" alt="">
         <div class="area-info">

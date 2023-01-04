@@ -15,5 +15,7 @@
 - inserir trailer(ok)
 - corrigir bug do editar(ok)
 - ajustar descrição dos filmes em baixas resoluções(ok)
+- ajustar a ordem da exibição dos filmes(ok)
+- resolver bug do footer na busca(ok)
 - melhorar sistema de votação/avaliação
 

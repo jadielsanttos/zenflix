@@ -34,7 +34,7 @@
                     <div class="section-banner-info--avaliacao">
                         <span class="span-right"><?=number_format($i['media'], 1);?> <i class="fa-solid fa-star"></i></span>
                     </div>
-                    <a href="filme.php?f=<?=$i['titulo'];?>">Detalhes</a>
+                    <a href="filme.php?f=<?=base64_encode($i['titulo']);?>">Detalhes</a>
                 </div>
 
             <?php  
@@ -60,12 +60,12 @@
 
         <?php 
 
-        $sql = $pdo->prepare("SELECT * FROM filmes");
+        $sql = $pdo->prepare("SELECT * FROM filmes ORDER BY id DESC");
         $sql->execute();
 
         if($sql->rowCount() > 0) { 
             foreach($sql->fetchAll() as $filme) {  ?>
-                <a class="link-item-listagem" href="filme.php?f=<?=$filme['titulo'];?>">
+                <a class="link-item-listagem" href="filme.php?f=<?=base64_encode($filme['titulo']);?>">
                     <div class="item-listagem">
                         <img src="<?=$filme['dir_foto'];?>" alt="">
                         <div class="area-info">
@@ -91,12 +91,12 @@
 
         <?php 
         
-        $sql = $pdo->prepare("SELECT * FROM filmes WHERE media > 3");
+        $sql = $pdo->prepare("SELECT * FROM filmes WHERE media > 3 ORDER BY media DESC");
         $sql->execute();
 
         if($sql->rowCount() > 0) {
             foreach($sql->fetchAll() as $item) { ?>
-                <a class="link-item-listagem" href="filme.php?f=<?=$item['titulo'];?>">
+                <a class="link-item-listagem" href="filme.php?f=<?=base64_encode($item['titulo']);?>">
                     <div class="item-listagem">
                         <img src="<?=$item['dir_foto'];?>" alt="">
                         <div class="area-info">

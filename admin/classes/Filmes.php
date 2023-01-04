@@ -28,7 +28,7 @@ class Filmes {
     public function listarFilmes() {
         global $pdo;
 
-        $sql = $pdo->prepare("SELECT * FROM filmes");
+        $sql = $pdo->prepare("SELECT * FROM filmes ORDER BY id DESC");
         $sql->execute();
         $info = $sql->fetchAll();
 

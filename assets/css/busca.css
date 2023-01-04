@@ -38,28 +38,16 @@ header .menu .logo a {
 }
 
 header .menu .busca input[type='search'] {
-    padding: 5px 5px 5px 40px;
+    padding: 5px 8px;
     outline: 0;
     border: none;
     border-radius: 5px;
     font-size: 17px;
 }
 
-header .menu .busca i {
-    position: absolute;
-    top: 32px;
-    right: 280px;
-    color: #444;
-}
-
 header .menu .busca input[type='search']:focus {
     border: 1px solid #000;
 }
-
-header .menu .busca input[type='search']:focus ~ i {
-    color: #000;
-}
-
 
 header .menu .busca button {
     padding: 5px 10px;
@@ -69,55 +57,52 @@ header .menu .busca button {
     background-color: #fff;
 }
 
-/* area busca */
+/* section busca */
 
-.busca {
-    height: 100%;
-}
-
-.busca h1 {
+.section-busca h1 {
     margin-top: 20px;
     margin-left: 70px;
     font-size: 25px;
 }
 
-.busca .resultado-busca  {
+.section-busca .resultado-busca  {
     margin-top: 10px;
     max-width: 1350px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 30px;
 }
 
-.busca .resultado-busca .resultado-busca-item {
+.section-busca .resultado-busca .resultado-busca-item {
     max-width: calc(1350px / 6);
     border: 1px solid #444;
     border-radius: 10px;
     margin: 5px 10px;
 }
 
-.busca .resultado-busca .link-item-listagem {
+.section-busca .resultado-busca .link-item-listagem {
     text-decoration: none;
     color: #fff;
 }
 
-.busca .resultado-busca .resultado-busca-item img {
+.section-busca .resultado-busca .resultado-busca-item img {
     width: 100%;
     height: 146px;
     border-radius: 10px 10px 0 0;
 }
 
-.busca .resultado-busca .resultado-busca-item .area-info {
+.section-busca .resultado-busca .resultado-busca-item .area-info {
     padding: 5px;
 }
 
-.busca .resultado-busca .resultado-busca-item .area-info span {
+.section-busca .resultado-busca .resultado-busca-item .area-info span {
     font-size: 14px;
     color: rgb(255, 243, 79);
 }
 
-.busca .resultado-busca .resultado-busca-item .area-info .fa-star {
+.section-busca .resultado-busca .resultado-busca-item .area-info .fa-star {
     color: rgb(255, 243, 79);
     font-size: 14px;
 }

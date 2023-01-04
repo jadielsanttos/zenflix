@@ -25,3 +25,4 @@ if(!empty($_GET['id']) && !empty($_GET['voto'])) {
         echo '<script>alert("não foi dessa vez!!")</script>';
     }
 }
+header('location: index.php');

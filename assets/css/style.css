@@ -42,28 +42,17 @@ header .menu .logo a {
 }
 
 header .menu .busca input[type='search'] {
-    padding: 5px 5px 5px 40px;
+    width: 250px;
+    padding: 5px 8px;
     outline: 0;
     border: none;
     border-radius: 5px;
     font-size: 17px;
 }
 
-header .menu .busca i {
-    position: absolute;
-    top: 32px;
-    right: 280px;
-    color: #444;
-}
-
 header .menu .busca input[type='search']:focus {
     border: 1px solid #000;
 }
-
-header .menu .busca input[type='search']:focus ~ i {
-    color: #000;
-}
-
 
 /* sessao banner */
 
@@ -165,6 +154,7 @@ header .menu .busca input[type='search']:focus ~ i {
     border: 1px solid #444;
     border-radius: 10px;
     margin: 5px 10px;
+    transition: all ease-in .2s;
 }
 
 .main .listagem .item-listagem img {
@@ -270,13 +260,13 @@ header .menu .busca input[type='search']:focus ~ i {
     color: #ccc;
 }
 
-.section-view-filme .area-shadow .area-section-view-filme a {
-    color: rgb(255, 243, 79);
+.section-view-filme .area-shadow .area-section-view-filme .link-avaliacao a {
+    color: #ccc;
     text-decoration: none;
 }
 
-.section-view-filme .area-shadow .area-section-view-filme a:hover {
-    color: rgb(255, 255, 0);
+.section-view-filme .area-shadow .area-section-view-filme .link-avaliacao a:hover {
+    color: rgb(255, 243, 79);
 }
 
 .section-view-filme .area-shadow .area-section-view-filme button {
@@ -317,7 +307,6 @@ header .menu .busca input[type='search']:focus ~ i {
     width: 600px;
     height: 400px;
     z-index: 1000;
-    transition: all ease .5s;
 }
 
 .single .area-shadow .area-trailer button {

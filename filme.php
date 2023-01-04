@@ -1,8 +1,7 @@
 <?php require 'config.php'; 
 
-
 $data = [];
-$filme = filter_input(INPUT_GET, 'f');
+$filme = base64_decode(filter_input(INPUT_GET, 'f'));
 
 
 if($filme) {
