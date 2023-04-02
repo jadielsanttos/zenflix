@@ -6,7 +6,7 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
 
     $sql = $pdo->prepare("SELECT * FROM filmes WHERE titulo LIKE '%$q%'");
     $sql->execute();
-    $dado = $sql->fetchAll();
+    $dados = $sql->fetchAll();
 }else {
     header('location: index.php');
     exit;
@@ -29,11 +29,13 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
     <?php require 'partials/header.php'; ?>
     
     <div class="section-busca">
-        <h1>Resultado da busca:</h1><br>
+        <div class="title">
+            <h1>Resultado da busca</h1>
+        </div>
         <div class="resultado-busca">
     <?php
         if($sql->rowCount() > 0) {
-        foreach($dado as $item) {  
+        foreach($dados as $item) {  
             require 'partials/resultado_busca.php';
     ?>
         
@@ -63,11 +65,9 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
             footer.style.left = '0';
             footer.style.right = '0';
         }
-
-
     </script>
 
-    <script src="assets/script/script.js"></script>
+    <script src="assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>

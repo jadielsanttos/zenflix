@@ -44,11 +44,11 @@ if($filme) {
                     <p><?=$data['descricao'];?></p>
                     <span>avaliar filme</span>
                     <div class="link-avaliacao">
-                        <a href="voto.php?id=<?=$data['id'];?>&voto=1"><i class="fa-solid fa-star"></i></a>
-                        <a href="voto.php?id=<?=$data['id'];?>&voto=2"><i class="fa-solid fa-star"></i></a>
-                        <a href="voto.php?id=<?=$data['id'];?>&voto=3"><i class="fa-solid fa-star"></i></a>
-                        <a href="voto.php?id=<?=$data['id'];?>&voto=4"><i class="fa-solid fa-star"></i></a>
-                        <a href="voto.php?id=<?=$data['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
+                        <a data-id="1" href="voto.php?id=<?=$data['id'];?>&voto=1"><i class="fa-solid fa-star"></i></a>
+                        <a data-id="2" href="voto.php?id=<?=$data['id'];?>&voto=2"><i class="fa-solid fa-star"></i></a>
+                        <a data-id="3" href="voto.php?id=<?=$data['id'];?>&voto=3"><i class="fa-solid fa-star"></i></a>
+                        <a data-id="4" href="voto.php?id=<?=$data['id'];?>&voto=4"><i class="fa-solid fa-star"></i></a>
+                        <a data-id="5" href="voto.php?id=<?=$data['id'];?>&voto=5"><i class="fa-solid fa-star"></i></a>
                         <span>(<?=number_format($data['media'], 1);?>)</span>
                     </div>
                     <button class="btn-open-modal-trailer" onclick="openModal()">Trailer</button>
@@ -64,7 +64,7 @@ if($filme) {
 
     <?php require 'partials/footer.php'; ?>
     
-    <script src="assets/script/script.js"></script>
+    <script src="assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>

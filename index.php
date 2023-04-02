@@ -44,9 +44,6 @@
 
             
             ?>
-    
-
-
             <div class="shadow-horizontal"></div>
             <div class="shadow-vertical"></div>
         </div>
@@ -55,33 +52,31 @@
 
     <div class="main">
         <div class="title-main"><h2>Adicionados recentemente</h2></div>
-
         <div class="listagem">
 
-        <?php 
-
-        $sql = $pdo->prepare("SELECT * FROM filmes ORDER BY id DESC");
-        $sql->execute();
-
-        if($sql->rowCount() > 0) { 
-            foreach($sql->fetchAll() as $filme) {  ?>
-                <a class="link-item-listagem" href="filme.php?f=<?=base64_encode($filme['titulo']);?>">
-                    <div class="item-listagem">
-                        <img src="<?=$filme['dir_foto'];?>" alt="">
-                        <div class="area-info">
-                            <h3 class="title-filme"><?=$filme['titulo'];?></h3>
-                            <span><?=number_format($filme['media'], 1);?> <i class="fa-solid fa-star"></i></span>
-                        </div>
-                    </div>
-                </a>
         <?php
+
+            $sql = $pdo->prepare("SELECT * FROM filmes ORDER BY id DESC");
+            $sql->execute();
+
+            if($sql->rowCount() > 0) {
+                foreach($sql->fetchAll() as $filme) {  ?>
+                    <a class="link-item-listagem" href="filme.php?f=<?=base64_encode($filme['titulo']);?>">
+                        <div class="item-listagem" style="background-image: url('<?=$filme['dir_foto']?>'); background-size: cover; background-position: center;">
+                            <div class="area-info">
+                                <h3 class="title-filme"><?=$filme['titulo'];?></h3>
+                                <span><?=number_format($filme['media'], 1);?> <i class="fa-solid fa-star"></i></span>
+                            </div>
+                        </div>
+                    </a>
+            <?php
+                }
+            }else {
+                echo 'Não há filmes cadastrados...';
             }
-        }else {
-            echo 'Não há filmes cadastrados...';
-        }
 
         ?>
-            
+             
         </div>
     </div>
 
@@ -97,8 +92,7 @@
         if($sql->rowCount() > 0) {
             foreach($sql->fetchAll() as $item) { ?>
                 <a class="link-item-listagem" href="filme.php?f=<?=base64_encode($item['titulo']);?>">
-                    <div class="item-listagem">
-                        <img src="<?=$item['dir_foto'];?>" alt="">
+                    <div class="item-listagem" style="background-image: url('<?=$item['dir_foto']?>'); background-size: cover; background-position: center;">
                         <div class="area-info">
                             <h3><?=$item['titulo'];?></h3>
                             <span><?=number_format($item['media'], 1);?> <i class="fa-solid fa-star"></i></span>
@@ -118,8 +112,7 @@
 
     <?php require 'partials/footer.php'; ?>
 
-
-    <script src="assets/script/script.js"></script>
+    <script src="assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>

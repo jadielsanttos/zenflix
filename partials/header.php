@@ -7,7 +7,7 @@
         <div class="busca">
             <form method="get" action="busca.php">
                 <div class="area-search">
-                    <input type="search" name="q" placeholder="buscar filmes..." autocomplete="off">
+                    <input type="search" name="q" placeholder="Buscar filmes..." autocomplete="off">
                 </div>
             </form>
         </div>
