@@ -4,9 +4,9 @@ function scrolListener() {
     let menu = document.getElementById('header');
 
     if(window.scrollY > 10) {
-        menu.style.backgroundImage = 'linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8))';  
+        menu.style.backgroundColor = '#000';  
     }else {
-        menu.style.backgroundImage = '';
+        menu.style.backgroundColor = '';
     }
 }
 

@@ -9,7 +9,7 @@
 html, body {
     width: 100%;
     height: 100vh;
-    background-color: rgb(4, 0, 15);
+    background-color: #000;
     color: #fff;
 }
 
@@ -23,8 +23,42 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(17, 0, 11);
+    background: #a6150d;
     border-radius: 10px;
+}
+
+.preload {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+}
+
+.preload .area-load {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.preload .area-load .load {
+    color: #a6150d;
+    width: 40px;
+    height: 40px;
+    border: 6px solid #a6150d;
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: is-rotating 1s infinite;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
 }
 
 header {
@@ -114,17 +148,17 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
 .section-banner .section-item .section-banner-info a {
     text-decoration: none;
     width: 100px;
-    background-color: #fff;
+    background-color: #a6150d;
     padding: 8px 20px;
     border: none;
-    color: #000;
+    color: #fff;
     border-radius: 5px;
     font-size: 16px;
     transition: 0.2s;
 }
 
 .section-banner .section-item .section-banner-info a:hover {
-    background-color: rgb(17, 0, 11);
+    background-color: #300906;
     color: #fff;
 }
 
@@ -143,7 +177,7 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(to bottom, transparent, rgb(4, 0, 15));
+    background-image: linear-gradient(to bottom, transparent, #000);
 }
 
 /* listagem dos filmes */
@@ -299,11 +333,11 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
 
 .section-view-filme .area-shadow .area-section-view-filme button {
     width: 100px;
-    background-color: #fff;
+    background-color: #a6150d;
     padding: 8px 20px;
     margin-top: 15px;
     border: none;
-    color: #000;
+    color: #fff;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
@@ -311,8 +345,7 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
 }
 
 .section-view-filme .area-shadow .area-section-view-filme button:hover {
-    background-color: rgb(17, 0, 11);
-    color: #fff;
+    background-color: #300906;
 }
 
 .fade {
@@ -339,7 +372,7 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
 
 .single .area-shadow .area-trailer button {
     padding: 10px 10px;
-    background-color: rgb(17, 0, 11);
+    background-color: #a6150d;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -364,7 +397,22 @@ footer .footer-area {
     align-items: center;
     width: 100%;
     height: 80px;
-    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+    background-color: #000;
+}
+
+@media (min-width: 1440px) {
+    header .menu {
+        max-width: none;
+        padding: 0 70px;
+    }
+    .main .listagem {
+        margin-right: 60px;
+        max-width: none;
+    }
+    .section-single .listagem {
+        margin-right: 60px;
+        max-width: none;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -414,11 +462,6 @@ footer .footer-area {
         left: 10px;
         margin-left: 10px;
     }
-    .main .title-main,
-    .section-single .title-section-single {
-        text-align: center;
-        margin-left: 0;
-    }
     .section-view-filme {
         background-position: center;
     }
@@ -458,8 +501,8 @@ footer .footer-area {
     .section-banner .section-item .shadow-vertical {
         height: 400px;
     }
-    .section-single .title-section-single h2 {
-        font-size: 22px;
+    .main .title-main {
+        margin-left: 20px;
     }
     .main {
         padding-top: 30px;
@@ -472,6 +515,12 @@ footer .footer-area {
     }
     .section-single .listagem {
         margin-left: 10px;
+    }
+    .section-single .title-section-single {
+        margin-left: 20px;
+    }
+    .section-single .title-section-single h2 {
+        font-size: 22px;
     }
     .section-view-filme .area-shadow .area-section-view-filme p {
         width: 250px;

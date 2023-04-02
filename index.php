@@ -11,6 +11,11 @@
     <title>Zenflix</title>
 </head>
 <body>
+    <div class="preload">
+        <div class="area-load">
+            <div class="load"></div>
+        </div>
+    </div>
 
     <?php require 'partials/header.php'; ?>
 
@@ -99,7 +104,6 @@
                         </div>
                     </div>
                 </a>
-
         <?php    
             }
         }
@@ -112,6 +116,12 @@
 
     <?php require 'partials/footer.php'; ?>
 
+    <script>
+        document.querySelector('.preload').style.display = 'block';
+        setTimeout(() => {
+            document.querySelector('.preload').style.display = 'none';
+        }, 2000);
+    </script>
     <script src="assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>

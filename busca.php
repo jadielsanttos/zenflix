@@ -25,6 +25,11 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
     <title>Buscar filmes</title>
 </head>
 <body>
+    <div class="preload">
+        <div class="area-load">
+            <div class="load"></div>
+        </div>
+    </div>
 
     <?php require 'partials/header.php'; ?>
     
@@ -55,6 +60,13 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
     <?php require 'partials/footer.php'; ?>
 
     <script>
+        // load
+        document.querySelector('.preload').style.display = 'block';
+        setTimeout(() => {
+            document.querySelector('.preload').style.display = 'none';
+        }, 2000);
+
+        // menu fixo
         let area = document.querySelector('.section-busca');
         let ItemBusca = document.querySelectorAll('.resultado-busca-item');
         let footer = document.querySelector('.footer-area');
@@ -64,6 +76,15 @@ if(isset($_GET['q']) && !empty($_GET['q'])) {
             footer.style.bottom = '0';
             footer.style.left = '0';
             footer.style.right = '0';
+        }
+
+        // verificando quantidade de filmes encontrados na busca
+        const resultadoBusca = document.querySelectorAll('.resultado-busca-item');
+
+        if(window.innerWidth <= 425) {
+            if(resultadoBusca.length == 1) {
+                document.querySelector('.resultado-busca').style.justifyContent = 'center';
+            }
         }
     </script>
 

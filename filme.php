@@ -32,9 +32,13 @@ if($filme) {
     <title>Zenflix</title>
 </head>
 <body>
+    <div class="preload">
+        <div class="area-load">
+            <div class="load"></div>
+        </div>
+    </div>
 
     <?php require 'partials/header.php'; ?>
-
 
     <section class="section-view-filme" style="width: 100%; height: 100vh; background-image: url('<?=$data['dir_foto'];?>'); background-repeat: no-repeat; background-size: cover;">
         <div class="single">
@@ -64,6 +68,12 @@ if($filme) {
 
     <?php require 'partials/footer.php'; ?>
     
+    <script>
+        document.querySelector('.preload').style.display = 'block';
+        setTimeout(() => {
+            document.querySelector('.preload').style.display = 'none';
+        }, 2000);
+    </script>
     <script src="assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>

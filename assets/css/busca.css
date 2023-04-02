@@ -9,7 +9,7 @@
 html, body {
     width: 100%;
     height: 100vh;
-    background-color: rgb(4, 0, 15);
+    background-color: #000;
     color: #fff;
 }
 
@@ -23,12 +23,46 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(17, 0, 11);
+    background: #a6150d;
     border-radius: 10px;
 }
 
+.preload {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+}
+
+.preload .area-load {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.preload .area-load .load {
+    color: #a6150d;
+    width: 40px;
+    height: 40px;
+    border: 6px solid #a6150d;
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: is-rotating 1s infinite;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
 header {
-    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+    background-color: #000;
 }
 
 header .menu {
@@ -131,13 +165,20 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
 
 /* footer area */
 
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 footer .footer-area {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 80px;
-    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+    background-color: #000;
     margin-top: 20px;
 }
 

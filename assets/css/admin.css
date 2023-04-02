@@ -20,7 +20,7 @@ html, body {
     display: none;
     width: 200px;
     height: 100%;
-    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+    background-color: #a6150d;
     color: #fff;
     padding: 10px;
     position: fixed;
@@ -51,10 +51,11 @@ html, body {
     color: #fff;
     padding: 10px 5px;
     width: 100%;
+    transition: .3s;
 }
 
 .main .side-bar a:hover {
-    background-color: #444;
+    background-color: #000;
 }
 
 .main .side-bar a:hover:nth-child(2) {
@@ -69,7 +70,7 @@ html, body {
 .content .menu {
     width: 100%;
     padding: 5px 0 5px 10px;
-    background-image: linear-gradient(to right, rgb(17, 0, 11), rgb(2, 0, 8));
+    background-color: #000;
 }
 
 .content .menu i {
@@ -88,7 +89,6 @@ html, body {
 .content .btn-voltar a {
     text-decoration: none;
     color: #000;
-    /* margin-left: 10px; */
     font-size: 20px;
 }
 
@@ -104,7 +104,7 @@ html, body {
 .content .title-form, .content .title-edit {
     margin: 0 10px;
     cursor: pointer;
-    background-color: rgb(4, 0, 15);
+    background-color: #000;
     color: #fff;
     margin-top: 10px;
     height: 45px;
@@ -162,7 +162,7 @@ html, body {
     border: 1px solid #ccc;
     margin: 0 10px;
     cursor: pointer;
-    background-color: rgb(4, 0, 15);
+    background-color: #000;
     color: #fff;
     margin-top: 30px;
     height: 45px;
