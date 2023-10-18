@@ -2,7 +2,7 @@
 require 'config.php';
 
 if(isset($_GET['q']) && !empty($_GET['q'])) {
-    $q = htmlspecialchars($_GET['q']);
+    $q = $_GET['q'];
 
     $sql = $pdo->prepare("SELECT * FROM filmes WHERE titulo LIKE '%$q%'");
     $sql->execute();

@@ -326,12 +326,12 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
     margin-bottom: 5px;
 }
 
-.section-view-filme .area-shadow .area-section-view-filme .link-avaliacao a {
-    color: #ccc;
+.section-view-filme .area-shadow .area-section-view-filme .rate-movie span {
+    color: rgb(255, 243, 79);
     text-decoration: none;
 }
 
-.section-view-filme .area-shadow .area-section-view-filme button {
+.section-view-filme .area-shadow .area-section-view-filme .area-btns button {
     width: 100px;
     background-color: #a6150d;
     padding: 8px 20px;
@@ -346,6 +346,13 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
 
 .section-view-filme .area-shadow .area-section-view-filme button:hover {
     background-color: #300906;
+}
+
+.section-view-filme .area-shadow .area-section-view-filme .area-btns button.btn-open-modal-rate-movie {
+    background-color: transparent;
+    color: #fff;
+    margin-left: 10px;
+    border: 2px solid #fff;
 }
 
 .fade {
@@ -371,7 +378,7 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
 }
 
 .single .area-shadow .area-trailer button {
-    padding: 10px 10px;
+    padding: 10px;
     background-color: #a6150d;
     color: #fff;
     border: none;
@@ -387,6 +394,96 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.section-view-filme .shadow-rate-movie {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie {
+    width: 300px;
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #a6150d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .title h1 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao {
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao .label {
+    margin-bottom: 20px;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao .stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao .stars .item-star {
+    font-size: 25px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao .stars .item-star.chosen-star {
+    color: rgb(255, 243, 79);
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao .area-btn-send button {
+    width: 100%;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #a6150d;
+    color: #fff;
+    margin-top: 20px;
+    border: 0;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao .area-btn-send button:hover {
+    background-color: #300906;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao .area-btn-close-modal {
+    display: flex;
+    justify-content: center;
+}
+
+.section-view-filme .shadow-rate-movie .modal-rate-movie .area-avaliacao .area-btn-close-modal button {
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    margin-top: 20px;
 }
 
 /* footer geral area */
