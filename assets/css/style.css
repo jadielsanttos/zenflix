@@ -331,6 +331,12 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
     text-decoration: none;
 }
 
+.section-view-filme .area-shadow .area-section-view-filme .area-btns {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
 .section-view-filme .area-shadow .area-section-view-filme .area-btns button {
     width: 100px;
     background-color: #a6150d;
@@ -351,7 +357,6 @@ header .menu .busca input[type='search']::-webkit-input-placeholder {
 .section-view-filme .area-shadow .area-section-view-filme .area-btns button.btn-open-modal-rate-movie {
     background-color: transparent;
     color: #fff;
-    margin-left: 10px;
     border: 2px solid #fff;
 }
 
@@ -563,11 +568,17 @@ footer .footer-area {
         background-position: center;
     }
     .section-view-filme .area-shadow .area-section-view-filme {
-        padding-top: 200px;
-        padding-left: 10px;
+        padding: 150px 10px 0 10px;
     }
     .section-view-filme .single .area-shadow .area-section-view-filme h1 {
         font-size: 30px;
+    }
+    .section-view-filme .area-shadow .area-section-view-filme p {
+        width: 100%;
+        font-size: 15px;
+    }
+    .section-view-filme .area-shadow .area-section-view-filme .area-btns button {
+        width: 50%;
     }
 }
 
@@ -618,10 +629,6 @@ footer .footer-area {
     }
     .section-single .title-section-single h2 {
         font-size: 22px;
-    }
-    .section-view-filme .area-shadow .area-section-view-filme p {
-        width: 250px;
-        font-size: 15px;
     }
 }
 
